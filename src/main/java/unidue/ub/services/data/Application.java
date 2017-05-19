@@ -1,4 +1,4 @@
-package unidue.ub.monographsusage;
+package unidue.ub.services.data;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
