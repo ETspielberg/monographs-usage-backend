@@ -12,7 +12,7 @@ import org.apache.commons.httpclient.methods.StringRequestEntity;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import unidue.ub.services.data.Counter;
+import unidue.ub.media.analysis.Counter;
 
 public class CounterConnector {
 	
@@ -42,7 +42,7 @@ public class CounterConnector {
 		ObjectMapper mapper = new ObjectMapper();
 		String json = mapper.writeValueAsString(counter);
 		HttpClient client = new HttpClient();
-		PutMethod put = new PutMethod("https://localhost:11883/process" + id);
+		PutMethod put = new PutMethod("https://localhost:11200/counter" + id);
 		RequestEntity entity = new StringRequestEntity(json,"application/json",null);
 		put.setRequestEntity(entity);
 		int response = client.executeMethod(put);
