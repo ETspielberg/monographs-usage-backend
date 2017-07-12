@@ -1,10 +1,12 @@
 package unidue.ub.services.data;
 
+import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurerAdapter;
 import unidue.ub.media.analysis.*;
 
-public class Configuration extends RepositoryRestConfigurerAdapter {
+@Configuration
+public class ApplicationConfiguration extends RepositoryRestConfigurerAdapter {
 
     @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
