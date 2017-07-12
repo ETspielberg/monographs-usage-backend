@@ -5,10 +5,10 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-import unidue.ub.media.analysis.Shelfanalysis;
+import unidue.ub.media.analysis.Documentanalysis;
 
 @CrossOrigin
-@RepositoryRestResource(collectionResourceRel = "shelfanalysis", path = "shelfanalysis")
-public interface ShelfAnalysisRepository  extends PagingAndSortingRepository<Shelfanalysis, Long> {
+@RepositoryRestResource(collectionResourceRel = "documentanalysis", path = "documentanalysis")
+public interface DocumentanalysisRepository extends PagingAndSortingRepository<Documentanalysis, Long> {
 	
 }
