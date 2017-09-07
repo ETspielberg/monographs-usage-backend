@@ -12,7 +12,7 @@ public class ApplicationConfiguration extends RepositoryRestConfigurerAdapter {
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
         config.getCorsRegistry()
                 .addMapping("/**")
-                .allowedOrigins("http://localhost:3000").allowedMethods("GET", "PUT", "DELETE", "POST");
+                .allowedOrigins("http://localhost:3000","http://localhost:8080").allowedMethods("GET", "PUT", "DELETE", "POST");
         config.exposeIdsFor(Counter.class, Documentanalysis.class, Eventanalysis.class, JournalRequest.class, Nrequests.class, Shelfanalysis.class);
     }
 }

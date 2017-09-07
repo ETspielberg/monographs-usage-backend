@@ -11,7 +11,7 @@ import unidue.ub.media.analysis.Eventanalysis;
 
 @CrossOrigin
 @RepositoryRestResource(collectionResourceRel = "eventanalysis", path = "eventanalysis")
-public interface EventanalysisRepository extends PagingAndSortingRepository<Eventanalysis, Long> {
+public interface EventanalysisRepository extends PagingAndSortingRepository<Eventanalysis, String> {
 	
 	List<Eventanalysis> findByStockcontrolId(@Param("stockcontrolId") String stockcontrolId);
 }
