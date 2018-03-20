@@ -12,5 +12,10 @@ import java.util.List;
 public interface JournalCounterRepository extends PagingAndSortingRepository<JournalCounter, String>{
 
     public List<JournalCounter> findByOnlineIssn(@Param("onlineIssn") String onlineIssn);
-	
+
+    public List<JournalCounter> findByPrintIssn(@Param("printIssn") String printIssn);
+
+    public List<JournalCounter> findByDoi(@Param("doi") String doi);
+
+    public List<JournalCounter> findByProprietary(@Param("proprietary") String proprietary);
 }

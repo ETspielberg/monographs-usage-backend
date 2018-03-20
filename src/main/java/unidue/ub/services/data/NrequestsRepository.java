@@ -18,7 +18,7 @@ public interface NrequestsRepository  extends PagingAndSortingRepository<Nreques
 
     @Query(value = "SELECT p.* FROM Nrequests p WHERE SUBSTRING(p.shelfmark,1,3) BETWEEN :startNotation AND :endNotation", nativeQuery = true)
     public List<Nrequests> getNrequestsForNotationgroup(@Param("startNotation") String startNotation, @Param("endNotation") String endNotation);
-    
+
     @Query(value = "SELECT p.* FROM Nrequests p WHERE SUBSTRING(p.shelfmark,1,3) BETWEEN :startNotation AND :endNotation AND date >= :startDate", nativeQuery = true)
     public List<Nrequests> getNrequestsForNotationgroupSinceDate(@Param("startNotation") String startNotation, @Param("endNotation") String endNotation, @Param("startDate") @Temporal(TemporalType.TIMESTAMP) Date startDate);
 }
