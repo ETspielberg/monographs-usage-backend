@@ -47,9 +47,9 @@ public class CounterController {
         return ResponseEntity.ok(list);
     }
 
-    @GetMapping("databasecounter/getForId")
-    public ResponseEntity<?> getAllDatabaseCounterForId(@Param("title") String title) {
-        List<DatabaseCounter> list = databaseCounterRepository.getAllByTitle(title);
+    @GetMapping("databasecounter/getForPlatform")
+    public ResponseEntity<?> getAllDatabaseCounterForPlatform(@Param("platform") String platform) {
+        List<DatabaseCounter> list = databaseCounterRepository.getAllByPlatform(platform);
         return ResponseEntity.ok(list);
     }
 }
