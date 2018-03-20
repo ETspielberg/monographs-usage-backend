@@ -11,11 +11,11 @@ import java.util.List;
 @RepositoryRestResource(collectionResourceRel = "journalcounter", path = "journalcounter")
 public interface JournalCounterRepository extends PagingAndSortingRepository<JournalCounter, String>{
 
-    public List<JournalCounter> findByOnlineIssn(@Param("onlineIssn") String onlineIssn);
+    public List<JournalCounter> findAllByOnlineIssn(@Param("onlineIssn") String onlineIssn);
 
-    public List<JournalCounter> findByPrintIssn(@Param("printIssn") String printIssn);
+    public List<JournalCounter> findAllByPrintIssn(@Param("printIssn") String printIssn);
 
-    public List<JournalCounter> findByDoi(@Param("doi") String doi);
+    public List<JournalCounter> findAllByDoi(@Param("doi") String doi);
 
-    public List<JournalCounter> findByProprietary(@Param("proprietary") String proprietary);
+    public List<JournalCounter> findAllByProprietary(@Param("proprietary") String proprietary);
 }
