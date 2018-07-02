@@ -11,6 +11,6 @@ public class ApplicationConfiguration extends RepositoryRestConfigurerAdapter {
 
     @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
-        config.exposeIdsFor(Counter.class, Documentanalysis.class, Eventanalysis.class, JournalRequest.class, Nrequests.class, Shelfanalysis.class);
+        config.exposeIdsFor(Counter.class, Documentanalysis.class, Eventanalysis.class, JournalRequest.class, Nrequests.class, Shelfanalysis.class, EbsData.class, Comment.class, DeletionList.class, CounterLog.class);
     }
 }
