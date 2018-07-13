@@ -43,7 +43,7 @@ public class CounterController {
         if (list.size() == 0)
             list = ebookCounterRepository.findAllByDoi(isbn);
         if (list.size() == 0)
-            list = ebookCounterRepository.findAllByProprietaryIdentifier(isbn);
+            list = ebookCounterRepository.findAllByProprietary(isbn);
         return ResponseEntity.ok(list);
     }
 

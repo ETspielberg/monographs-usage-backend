@@ -16,6 +16,6 @@ public interface EbookCounterRepository extends PagingAndSortingRepository<Ebook
 
     public List<EbookCounter> findAllByDoi(@Param("doi") String doi);
 
-    public List<EbookCounter> findAllByProprietaryIdentifier(@Param("proprietaryIdentifier") String proprietaryIdentifier);
+    public List<EbookCounter> findAllByProprietary(@Param("proprietary") String proprietaryIdentifier);
 	
 }
