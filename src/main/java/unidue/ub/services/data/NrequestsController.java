@@ -11,10 +11,7 @@ import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Controller
 public class NrequestsController {
@@ -33,9 +30,23 @@ public class NrequestsController {
         cal.set(Calendar.MILLISECOND, 0);
 
         List<Nrequests> nrequests = nrequestsRepository.getNrequestsForNotationgroupSinceDate(startNotation,endNotation, new Timestamp(cal.getTimeInMillis()));
-        if (nrequests == null)
-            nrequests = new ArrayList<>();
-        return ResponseEntity.ok(nrequests);
+        Map<String,Nrequests> maxNrequests = new HashMap<>();
+        List<Nrequests> returnList = new ArrayList<>();
+        if (nrequests != null) {
+            for (Nrequests nrequest : nrequests) {
+                if (maxNrequests.containsKey(nrequest.getTitleId())) {
+                    Nrequests nrequestsInd = maxNrequests.get(nrequest.getTitleId());
+                    nrequest.NRequests = Math.max(nrequestsInd.NRequests, nrequest.NRequests);
+                    nrequest.totalDuration = Math.max(nrequestsInd.totalDuration, nrequest.totalDuration);
+                    nrequest.setRatio(Math.max(nrequestsInd.getRatio(), nrequest.getRatio()));
+                    maxNrequests.put(nrequest.getTitleId(), nrequest);
+                } else {
+                    maxNrequests.put(nrequest.getTitleId(), nrequest);
+                }
+            }
+            returnList = new ArrayList(maxNrequests.values());
+        }
+        return ResponseEntity.ok(returnList);
 
     }
 
