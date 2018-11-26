@@ -1,4 +1,4 @@
-package unidue.ub.services.data;
+package unidue.ub.services.data.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import unidue.ub.media.analysis.Nrequests;
+import unidue.ub.services.data.repository.NrequestsRepository;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;

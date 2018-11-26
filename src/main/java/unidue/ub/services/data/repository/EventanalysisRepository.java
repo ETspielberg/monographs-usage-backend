@@ -1,4 +1,4 @@
-package unidue.ub.services.data;
+package unidue.ub.services.data.repository;
 
 import java.util.List;
 

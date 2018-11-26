@@ -1,4 +1,4 @@
-package unidue.ub.services.data;
+package unidue.ub.services.data.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import unidue.ub.media.analysis.DatabaseCounter;
 import unidue.ub.media.analysis.EbookCounter;
 import unidue.ub.media.analysis.JournalCounter;
+import unidue.ub.services.data.repository.DatabaseCounterRepository;
+import unidue.ub.services.data.repository.EbookCounterRepository;
+import unidue.ub.services.data.repository.JournalCounterRepository;
 
 import java.util.List;
 
