@@ -5,6 +5,8 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import unidue.ub.media.analysis.DatabaseCounter;
 import unidue.ub.media.analysis.EbookCounter;
 import unidue.ub.media.analysis.JournalCounter;
@@ -35,6 +37,18 @@ public class CounterController {
             list = journalCounterRepository.findAllByDoi(issn);
         if (list.size() == 0)
             list = journalCounterRepository.findAllByProprietary(issn);
+        return ResponseEntity.ok(list);
+    }
+
+    @GetMapping("/journalcounter/getForYear/{issn}")
+    public ResponseEntity<?> getAlJournalCountersForIssn(@PathVariable("issn") String issn, @RequestParam("year") int year) {
+        List<JournalCounter> list = journalCounterRepository.findAllByOnlineIssnAndYear(issn, year);
+        if (list.size() == 0)
+            list = journalCounterRepository.findAllByPrintIssnAndYear(issn, year);
+        if (list.size() == 0)
+            list = journalCounterRepository.findAllByDoiAndYear(issn, year);
+        if (list.size() == 0)
+            list = journalCounterRepository.findAllByProprietaryAndYear(issn, year);
         return ResponseEntity.ok(list);
     }
 
